@@ -17,46 +17,99 @@
       --text: #333333;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text);
       line-height: 1.6;
     }
 
+    /* Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      border-bottom: 3px solid var(--yellow);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .navbar .brand {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .navbar .brand span { color: var(--yellow); }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+
+    /* Mobile nav toggle */
+    .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+    @media (max-width: 700px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 3px solid var(--yellow);
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+      }
+      .nav-links.open { display: flex; }
+    }
+
     /* Hero */
     .hero {
       background: linear-gradient(135deg, var(--yellow-light) 0%, var(--white) 100%);
       text-align: center;
-      padding: 4rem 1.5rem 3rem;
-      border-bottom: 4px solid var(--yellow);
+      padding: 5rem 1.5rem 4rem;
     }
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: var(--black);
       margin-bottom: 0.25rem;
     }
-    .hero h1 span {
-      color: var(--yellow);
-    }
+    .hero h1 span { color: var(--yellow); }
     .hero .tagline {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-style: italic;
       color: #555;
       margin-bottom: 1rem;
     }
     .hero .superpower {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       max-width: 600px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2rem;
     }
     .hero .cta-btn {
       display: inline-block;
       background: var(--yellow);
       color: var(--white);
       text-decoration: none;
-      padding: 0.9rem 2rem;
+      padding: 1rem 2.2rem;
       border-radius: 30px;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 600;
       box-shadow: 0 4px 12px rgba(245,166,35,0.4);
       transition: transform 0.2s, box-shadow 0.2s;
@@ -66,12 +119,12 @@
       box-shadow: 0 6px 16px rgba(245,166,35,0.5);
     }
 
-    /* Sections */
-    section { padding: 3rem 1.5rem; }
+    /* Shared section styles */
+    section { padding: 4rem 1.5rem; }
     .section-title {
       text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
       color: var(--black);
     }
     .section-title::after {
@@ -90,7 +143,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
     .service-card {
@@ -105,13 +158,10 @@
       margin-bottom: 0.5rem;
       font-size: 1.15rem;
     }
-    .service-card ul {
-      list-style: none;
-      padding: 0;
-    }
+    .service-card ul { list-style: none; padding: 0; }
     .service-card ul li {
-      padding: 0.25rem 0;
-      padding-left: 1.2rem;
+      padding: 0.3rem 0;
+      padding-left: 1.4rem;
       position: relative;
     }
     .service-card ul li::before {
@@ -121,63 +171,6 @@
       color: var(--yellow);
       font-weight: bold;
     }
-
-    /* Area */
-    .area {
-      text-align: center;
-      background: var(--white);
-    }
-    .area p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Contact */
-    .contact {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-    }
-    .contact .section-title { color: var(--white); }
-    .contact-methods {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      padding: 0.75rem 0;
-      font-size: 1.1rem;
-    }
-    .contact-item a {
-      color: var(--yellow);
-      text-decoration: none;
-    }
-    .contact-item a:hover { text-decoration: underline; }
-    .contact-icon {
-      font-size: 1.4rem;
-    }
-    .hours {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #333;
-    }
-    .hours p { margin: 0.25rem 0; }
-
-    /* Footer */
-    footer {
-      background: var(--black);
-      color: #888;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
-      border-top: 1px solid #333;
-    }
-
-    /* Badges */
     .badges {
       display: flex;
       justify-content: center;
@@ -195,17 +188,150 @@
       color: var(--black);
     }
 
+    /* Gallery (Before & After) */
+    .gallery { background: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .gallery-pair {
+      background: var(--gray);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .gallery-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .gallery-images .img-placeholder {
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 600;
+    }
+    .gallery-images .before { background: #e8e8e8; }
+    .gallery-images .after { background: #d4edda; }
+    .gallery-pair .caption {
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* Reviews */
+    .reviews { background: var(--gray); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .review-card::before {
+      content: '"';
+      font-size: 3rem;
+      color: var(--yellow);
+      position: absolute;
+      top: 0.5rem;
+      left: 1rem;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+    .review-card p {
+      padding-top: 1.5rem;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .review-card .reviewer {
+      font-weight: 600;
+      color: var(--yellow);
+      font-style: normal;
+    }
+    .stars { color: var(--yellow); margin-bottom: 0.5rem; }
+
+    /* Contact */
+    .contact {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+    .contact .section-title { color: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .contact-card {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .contact-card h3 {
+      color: var(--yellow);
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+    .contact-card p, .contact-card a {
+      color: #ddd;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .contact-card a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      color: #888;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #333;
+    }
+
     @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
+      .hero h1 { font-size: 2rem; }
       .hero .tagline { font-size: 1.1rem; }
-      section { padding: 2rem 1rem; }
+      section { padding: 3rem 1rem; }
+      .gallery-images { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="brand">🌻 <span>Sunflowers</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Before &amp; After</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="home">
     <h1>🌻 <span>Sunflowers</span></h1>
     <p class="tagline">Decluttering Your Chaos</p>
     <p class="superpower">Turning chaos into calm by transforming cluttered spaces into beautifully structured, highly efficient systems.</p>
@@ -252,33 +378,86 @@
     </div>
   </section>
 
-  <!-- Service Area -->
-  <section class="area">
-    <h2 class="section-title">Service Area</h2>
-    <p>Proudly serving <strong>Tarrant County</strong> and <strong>Parker County</strong>, Texas.</p>
+  <!-- Before & After Gallery -->
+  <section class="gallery" id="gallery">
+    <h2 class="section-title">Before &amp; After</h2>
+    <div class="gallery-grid">
+      <div class="gallery-pair">
+        <div class="gallery-images">
+          <div class="img-placeholder before">BEFORE</div>
+          <div class="img-placeholder after">AFTER</div>
+        </div>
+        <p class="caption">Kitchen deep clean &amp; organization</p>
+      </div>
+      <div class="gallery-pair">
+        <div class="gallery-images">
+          <div class="img-placeholder before">BEFORE</div>
+          <div class="img-placeholder after">AFTER</div>
+        </div>
+        <p class="caption">Garage declutter &amp; storage setup</p>
+      </div>
+      <div class="gallery-pair">
+        <div class="gallery-images">
+          <div class="img-placeholder before">BEFORE</div>
+          <div class="img-placeholder after">AFTER</div>
+        </div>
+        <p class="caption">Closet organization &amp; labeling</p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:1.5rem; color:#888; font-style:italic;">Photos coming soon – ask about seeing our work in person!</p>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews" id="reviews">
+    <h2 class="section-title">What Clients Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Shelby transformed my garage from an absolute disaster into an organized dream. I can actually park my car in there now!</p>
+        <span class="reviewer">— Satisfied Customer</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>The deep clean was incredible. Every corner sparkled. She's thorough, hardworking, and so cheerful the whole time.</p>
+        <span class="reviewer">— Happy Homeowner</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Hired Sunflowers for our move-out cleaning and the landlord said it was the cleanest unit he'd ever received back. Highly recommend!</p>
+        <span class="reviewer">— Recent Mover</span>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:1.5rem; color:#888; font-style:italic;">Have a review to share? Send it our way and we'll feature it here!</p>
   </section>
 
   <!-- Contact -->
   <section class="contact" id="contact">
     <h2 class="section-title">Get In Touch</h2>
-    <p style="margin-bottom:1.5rem; color:#ccc;">Ready to reclaim your space? Reach out today for a free consultation!</p>
-    <div class="contact-methods">
-      <div class="contact-item">
-        <span class="contact-icon">📞</span>
-        <a href="tel:3619472321">(361) 947-2321</a> – Call or Text
+    <p style="margin-bottom:2rem; color:#ccc;">Ready to reclaim your space? Reach out today!</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>📞 Reach Us</h3>
+        <p>
+          Call or Text: <a href="tel:3619472321">(361) 947-2321</a><br>
+          Email: <a href="mailto:Shelbycain@myyahoo.com">Shelbycain@myyahoo.com</a><br>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook Page</a>
+        </p>
       </div>
-      <div class="contact-item">
-        <span class="contact-icon">✉️</span>
-        <a href="mailto:Shelbycain@myyahoo.com">Shelbycain@myyahoo.com</a>
+      <div class="contact-card">
+        <h3>🕐 Hours</h3>
+        <p>
+          Monday – Saturday<br>
+          8:00 AM – 5:00 PM
+        </p>
       </div>
-      <div class="contact-item">
-        <span class="contact-icon">📘</span>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+      <div class="contact-card">
+        <h3>📍 Service Area</h3>
+        <p>
+          Tarrant County<br>
+          Parker County<br>
+          <em>Texas</em>
+        </p>
       </div>
-    </div>
-    <div class="hours">
-      <p><strong>Hours of Operation</strong></p>
-      <p>Monday – Saturday: 8:00 AM – 5:00 PM</p>
     </div>
   </section>
 
