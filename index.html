@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunflowers – Decluttering Your Chaos | Cleaning &amp; Organizing Services</title>
+  <meta name="description" content="Professional cleaning, deep cleaning, organizing, and decluttering services in Tarrant and Parker County. Turning chaos into calm.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #F5A623;
+      --yellow-light: #FFF8E1;
+      --black: #1a1a1a;
+      --white: #ffffff;
+      --gray: #f9f9f9;
+      --text: #333333;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--yellow-light) 0%, var(--white) 100%);
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      border-bottom: 4px solid var(--yellow);
+    }
+    .hero img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+    .hero h1 span {
+      color: var(--yellow);
+    }
+    .hero .tagline {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .hero .superpower {
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero .cta-btn {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(245,166,35,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(245,166,35,0.5);
+    }
+
+    /* Sections */
+    section { padding: 3rem 1.5rem; }
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: var(--black);
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--yellow);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Services */
+    .services { background: var(--gray); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-left: 4px solid var(--yellow);
+    }
+    .service-card h3 {
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+    }
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .service-card ul li {
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .service-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--yellow);
+      font-weight: bold;
+    }
+
+    /* Area */
+    .area {
+      text-align: center;
+      background: var(--white);
+    }
+    .area p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+    .contact .section-title { color: var(--white); }
+    .contact-methods {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      font-size: 1.1rem;
+    }
+    .contact-item a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+    .contact-icon {
+      font-size: 1.4rem;
+    }
+    .hours {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #333;
+    }
+    .hours p { margin: 0.25rem 0; }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      color: #888;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #333;
+    }
+
+    /* Badges */
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .badge {
+      background: var(--yellow-light);
+      border: 2px solid var(--yellow);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--black);
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero .tagline { font-size: 1.1rem; }
+      section { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="1000008649.jpg" alt="Sunflowers Decluttering Your Chaos – Services Overview">
+    <h1>🌻 <span>Sunflowers</span></h1>
+    <p class="tagline">Decluttering Your Chaos</p>
+    <p class="superpower">Turning chaos into calm by transforming cluttered spaces into beautifully structured, highly efficient systems.</p>
+    <a href="tel:3619472321" class="cta-btn">📞 Call Now – (361) 947-2321</a>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>🏠 Home Cleaning</h3>
+        <ul>
+          <li>Standard Cleaning</li>
+          <li>Deep Cleaning</li>
+          <li>Move-In / Move-Out Cleaning</li>
+          <li>Seasonal Cleaning</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>📦 Decluttering &amp; Organization</h3>
+        <ul>
+          <li>Single Room or Whole Home</li>
+          <li>Garage Organization</li>
+          <li>Storage Organization</li>
+          <li>Garage / Estate Sale Prep</li>
+          <li>Donation &amp; Recycling Runs</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>✨ Additional Services</h3>
+        <ul>
+          <li>Packing &amp; Unpacking</li>
+          <li>Downsizing &amp; Estate Cleanouts</li>
+          <li>Organizing &amp; Labeling</li>
+          <li>General Household Assistance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge">✅ Trusted &amp; Reliable</span>
+      <span class="badge">📋 References Available</span>
+      <span class="badge">⭐ Professional</span>
+    </div>
+  </section>
+
+  <!-- Service Area -->
+  <section class="area">
+    <h2 class="section-title">Service Area</h2>
+    <p>Proudly serving <strong>Tarrant County</strong> and <strong>Parker County</strong>, Texas.</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p style="margin-bottom:1.5rem; color:#ccc;">Ready to reclaim your space? Reach out today for a free consultation!</p>
+    <div class="contact-methods">
+      <div class="contact-item">
+        <span class="contact-icon">📞</span>
+        <a href="tel:3619472321">(361) 947-2321</a> – Call or Text
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">✉️</span>
+        <a href="mailto:Shelbycain@myyahoo.com">Shelbycain@myyahoo.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📘</span>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="hours">
+      <p><strong>Hours of Operation</strong></p>
+      <p>Monday – Saturday: 8:00 AM – 5:00 PM</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Sunflowers – Decluttering Your Chaos. All rights reserved.
+  </footer>
+
+</body>
+</html>
