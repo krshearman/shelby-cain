@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sunflowers – Decluttering Your Chaos | Cleaning &amp; Organizing Services</title>
   <meta name="description" content="Professional cleaning, deep cleaning, organizing, and decluttering services in Tarrant and Parker County. Turning chaos into calm.">
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -81,7 +82,8 @@
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, var(--yellow-light) 0%, var(--white) 100%);
+      background: linear-gradient(135deg, rgba(255,248,225,0.85) 0%, rgba(255,255,255,0.85) 100%),
+                  url('images/hero-bg.jpg') center/cover no-repeat;
       text-align: center;
       padding: 5rem 1.5rem 4rem;
     }
@@ -372,7 +374,7 @@
 
   <!-- Navigation -->
   <nav class="navbar">
-    <a href="#" class="brand">🌻 <span>Sunflowers</span></a>
+    <a href="#" class="brand"><img src="images/logo.jpg" alt="Sunflowers logo" style="height:36px;border-radius:4px;vertical-align:middle;margin-right:0.4rem"><span>Sunflowers</span></a>
     <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -384,7 +386,7 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <h1>🌻 <span>Sunflowers</span></h1>
+    <img src="images/logo.jpg" alt="Sunflowers – Decluttering Your Chaos" style="max-width:320px;width:100%;border-radius:8px;margin-bottom:1rem">
     <p class="tagline">Decluttering Your Chaos</p>
     <p class="superpower">Turning chaos into calm by transforming cluttered spaces into beautifully structured, highly efficient systems.</p>
     <a href="tel:3619472321" class="cta-btn">📞 Call Now – (361) 947-2321</a>
@@ -395,6 +397,7 @@
     <h2 class="section-title">Our Services</h2>
     <div class="services-grid">
       <div class="service-card">
+        <img src="images/icon-cleaning.jpg" alt="Cleaning icon" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:0.75rem">
         <h3>🏠 Home Cleaning</h3>
         <ul>
           <li>Standard Cleaning</li>
@@ -404,6 +407,7 @@
         </ul>
       </div>
       <div class="service-card">
+        <img src="images/icon-organizing.jpg" alt="Organizing icon" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:0.75rem">
         <h3>📦 Decluttering &amp; Organization</h3>
         <ul>
           <li>Single Room or Whole Home</li>
@@ -414,6 +418,7 @@
         </ul>
       </div>
       <div class="service-card">
+        <img src="images/icon-movein.jpg" alt="Move-in services icon" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:0.75rem">
         <h3>✨ Additional Services</h3>
         <ul>
           <li>Packing &amp; Unpacking</li>
