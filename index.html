@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sunflowers – Decluttering Your Chaos | Cleaning &amp; Organizing Services</title>
   <meta name="description" content="Professional cleaning, deep cleaning, organizing, and decluttering services in Tarrant and Parker County. Turning chaos into calm.">
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -81,7 +82,8 @@
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, var(--yellow-light) 0%, var(--white) 100%);
+      background: linear-gradient(135deg, rgba(255,248,225,0.85) 0%, rgba(255,255,255,0.85) 100%),
+                  url('images/hero-bg.jpg') center/cover no-repeat;
       text-align: center;
       padding: 5rem 1.5rem 4rem;
     }
@@ -190,19 +192,19 @@
 
     /* Gallery (Before & After) */
     .gallery { background: var(--white); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 960px;
+    .slideshow {
+      position: relative;
+      max-width: 720px;
       margin: 0 auto;
     }
-    .gallery-pair {
+    .slide {
+      display: none;
       background: var(--gray);
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
+    .slide.active { display: block; }
     .gallery-images {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -226,6 +228,38 @@
     .gallery-label.before { left: 0.5rem; background: #555; }
     .gallery-label.after { right: 0.5rem; background: #4caf50; }
     .gallery-img-wrap { position: relative; }
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.2s;
+    }
+    .slide-btn:hover { background: var(--yellow); color: var(--black); }
+    .slide-btn.prev { left: 0.75rem; }
+    .slide-btn.next { right: 0.75rem; }
+    .slide-dots {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .slide-dots button {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--yellow);
+      background: transparent;
+      margin: 0 4px;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .slide-dots button.active { background: var(--yellow); }
     .gallery-pair .caption {
       padding: 0.75rem 1rem;
       text-align: center;
@@ -280,9 +314,9 @@
     .contact .section-title { color: var(--white); }
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 800px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 960px;
       margin: 0 auto;
     }
     .contact-card {
@@ -305,6 +339,18 @@
       text-decoration: none;
     }
     .contact-card a:hover { text-decoration: underline; }
+    .socials-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .socials-icons a {
+      color: var(--yellow);
+      transition: transform 0.2s;
+    }
+    .socials-icons a:hover {
+      transform: scale(1.15);
+    }
 
     /* Footer */
     footer {
@@ -328,7 +374,7 @@
 
   <!-- Navigation -->
   <nav class="navbar">
-    <a href="#" class="brand">🌻 <span>Sunflowers</span></a>
+    <a href="#" class="brand"><img src="images/logo.jpg" alt="Sunflowers logo" style="height:36px;border-radius:4px;vertical-align:middle;margin-right:0.4rem"><span>Sunflowers</span></a>
     <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -340,7 +386,7 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <h1>🌻 <span>Sunflowers</span></h1>
+    <img src="images/logo.jpg" alt="Sunflowers – Decluttering Your Chaos" style="max-width:320px;width:100%;border-radius:8px;margin-bottom:1rem">
     <p class="tagline">Decluttering Your Chaos</p>
     <p class="superpower">Turning chaos into calm by transforming cluttered spaces into beautifully structured, highly efficient systems.</p>
     <a href="tel:3619472321" class="cta-btn">📞 Call Now – (361) 947-2321</a>
@@ -351,6 +397,7 @@
     <h2 class="section-title">Our Services</h2>
     <div class="services-grid">
       <div class="service-card">
+        <img src="images/icon-cleaning.jpg" alt="Cleaning icon" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:0.75rem">
         <h3>🏠 Home Cleaning</h3>
         <ul>
           <li>Standard Cleaning</li>
@@ -360,6 +407,7 @@
         </ul>
       </div>
       <div class="service-card">
+        <img src="images/icon-organizing.jpg" alt="Organizing icon" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:0.75rem">
         <h3>📦 Decluttering &amp; Organization</h3>
         <ul>
           <li>Single Room or Whole Home</li>
@@ -370,6 +418,7 @@
         </ul>
       </div>
       <div class="service-card">
+        <img src="images/icon-movein.jpg" alt="Move-in services icon" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:0.75rem">
         <h3>✨ Additional Services</h3>
         <ul>
           <li>Packing &amp; Unpacking</li>
@@ -389,41 +438,47 @@
   <!-- Before & After Gallery -->
   <section class="gallery" id="gallery">
     <h2 class="section-title">Before &amp; After</h2>
-    <div class="gallery-grid">
-      <div class="gallery-pair">
+    <div class="slideshow">
+      <button class="slide-btn prev" onclick="changeSlide(-1)" aria-label="Previous">&#8249;</button>
+      <button class="slide-btn next" onclick="changeSlide(1)" aria-label="Next">&#8250;</button>
+
+      <div class="slide active">
         <div class="gallery-images">
           <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125400.jpg" alt="Before – decluttering project"></div>
           <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125426.jpg" alt="After – decluttering project"></div>
         </div>
-        <p class="caption">Declutter &amp; deep clean</p>
       </div>
-      <div class="gallery-pair">
+      <div class="slide">
         <div class="gallery-images">
           <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125442.jpg" alt="Before – organizing project"></div>
           <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125446.jpg" alt="After – organizing project"></div>
         </div>
-        <p class="caption">Organization &amp; labeling</p>
       </div>
-      <div class="gallery-pair">
+      <div class="slide">
         <div class="gallery-images">
           <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125457.jpg" alt="Before – cleaning project"></div>
           <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125503.jpg" alt="After – cleaning project"></div>
         </div>
-        <p class="caption">Deep clean transformation</p>
       </div>
-      <div class="gallery-pair">
+      <div class="slide">
         <div class="gallery-images">
           <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125520.jpg" alt="Before – space makeover"></div>
           <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125527.jpg" alt="After – space makeover"></div>
         </div>
-        <p class="caption">Space makeover</p>
       </div>
-      <div class="gallery-pair">
+      <div class="slide">
         <div class="gallery-images">
           <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125532.jpg" alt="Before – garage organization"></div>
           <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125536.jpg" alt="After – garage organization"></div>
         </div>
-        <p class="caption">Garage organization</p>
+      </div>
+
+      <div class="slide-dots">
+        <button class="active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+        <button onclick="goToSlide(1)" aria-label="Slide 2"></button>
+        <button onclick="goToSlide(2)" aria-label="Slide 3"></button>
+        <button onclick="goToSlide(3)" aria-label="Slide 4"></button>
+        <button onclick="goToSlide(4)" aria-label="Slide 5"></button>
       </div>
     </div>
   </section>
@@ -457,11 +512,10 @@
     <p style="margin-bottom:2rem; color:#ccc;">Ready to reclaim your space? Reach out today!</p>
     <div class="contact-grid">
       <div class="contact-card">
-        <h3>📞 Reach Us</h3>
+        <h3>📞 Call Us</h3>
         <p>
-          Call or Text: <a href="tel:3619472321">(361) 947-2321</a><br>
-          Email: <a href="mailto:Shelbycain@myyahoo.com">Shelbycain@myyahoo.com</a><br>
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook Page</a>
+          Call or Text:<br>
+          <a href="tel:3619472321">(361) 947-2321</a>
         </p>
       </div>
       <div class="contact-card">
@@ -479,12 +533,55 @@
           <em>Texas</em>
         </p>
       </div>
+      <div class="contact-card">
+        <h3>💬 Socials</h3>
+        <div class="socials-icons">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.088 4.088 0 011.47.957c.453.453.753.883.957 1.47.163.46.349 1.26.403 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.403 2.43a4.088 4.088 0 01-.957 1.47 4.088 4.088 0 01-1.47.957c-.46.163-1.26.349-2.43.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.403a4.088 4.088 0 01-1.47-.957 4.088 4.088 0 01-.957-1.47c-.163-.46-.349-1.26-.403-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.43a4.088 4.088 0 01.957-1.47A4.088 4.088 0 015.063 2.3c.46-.163 1.26-.349 2.43-.403C8.759 2.175 9.139 2.163 12 2.163zM12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.902.333 4.14.63a6.21 6.21 0 00-2.245 1.462A6.21 6.21 0 00.432 4.337C.136 5.1-.067 5.972.014 7.25.072 8.53.086 8.938.086 12.197c0 3.259.014 3.668.072 4.948.058 1.277.261 2.15.558 2.912a6.21 6.21 0 001.462 2.245 6.21 6.21 0 002.245 1.462c.762.297 1.635.5 2.912.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.15-.261 2.912-.558a6.21 6.21 0 002.245-1.462 6.21 6.21 0 001.462-2.245c.297-.762.5-1.635.558-2.912.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.058-1.277-.261-2.15-.558-2.912a6.21 6.21 0 00-1.462-2.245A6.21 6.21 0 0019.86.63C19.1.333 18.225.13 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="mailto:Shelbycain@myyahoo.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
     &copy; 2026 Sunflowers – Decluttering Your Chaos. All rights reserved.
   </footer>
+
+  <script>
+    // Slideshow
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slide-dots button');
+
+    function showSlide(n) {
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+    function changeSlide(dir) { showSlide(currentSlide + dir); }
+    function goToSlide(n) { showSlide(n); }
+
+    // Swipe support for mobile
+    let touchStartX = 0;
+    const ss = document.querySelector('.slideshow');
+    if (ss) {
+      ss.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+      ss.addEventListener('touchend', e => {
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (diff > 50) changeSlide(-1);
+        else if (diff < -50) changeSlide(1);
+      });
+    }
+  </script>
 
 </body>
 </html>
