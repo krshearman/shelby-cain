@@ -207,17 +207,25 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    .gallery-images .img-placeholder {
+    .gallery-images img {
+      width: 100%;
       aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      color: #888;
-      font-weight: 600;
+      object-fit: cover;
+      display: block;
     }
-    .gallery-images .before { background: #e8e8e8; }
-    .gallery-images .after { background: #d4edda; }
+    .gallery-label {
+      position: absolute;
+      top: 0.5rem;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .gallery-label.before { left: 0.5rem; background: #555; }
+    .gallery-label.after { right: 0.5rem; background: #4caf50; }
+    .gallery-img-wrap { position: relative; }
     .gallery-pair .caption {
       padding: 0.75rem 1rem;
       text-align: center;
@@ -384,27 +392,40 @@
     <div class="gallery-grid">
       <div class="gallery-pair">
         <div class="gallery-images">
-          <div class="img-placeholder before">BEFORE</div>
-          <div class="img-placeholder after">AFTER</div>
+          <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125400.jpg" alt="Before – decluttering project"></div>
+          <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125426.jpg" alt="After – decluttering project"></div>
         </div>
-        <p class="caption">Kitchen deep clean &amp; organization</p>
+        <p class="caption">Declutter &amp; deep clean</p>
       </div>
       <div class="gallery-pair">
         <div class="gallery-images">
-          <div class="img-placeholder before">BEFORE</div>
-          <div class="img-placeholder after">AFTER</div>
+          <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125442.jpg" alt="Before – organizing project"></div>
+          <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125446.jpg" alt="After – organizing project"></div>
         </div>
-        <p class="caption">Garage declutter &amp; storage setup</p>
+        <p class="caption">Organization &amp; labeling</p>
       </div>
       <div class="gallery-pair">
         <div class="gallery-images">
-          <div class="img-placeholder before">BEFORE</div>
-          <div class="img-placeholder after">AFTER</div>
+          <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125457.jpg" alt="Before – cleaning project"></div>
+          <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125503.jpg" alt="After – cleaning project"></div>
         </div>
-        <p class="caption">Closet organization &amp; labeling</p>
+        <p class="caption">Deep clean transformation</p>
+      </div>
+      <div class="gallery-pair">
+        <div class="gallery-images">
+          <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125520.jpg" alt="Before – space makeover"></div>
+          <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125527.jpg" alt="After – space makeover"></div>
+        </div>
+        <p class="caption">Space makeover</p>
+      </div>
+      <div class="gallery-pair">
+        <div class="gallery-images">
+          <div class="gallery-img-wrap"><span class="gallery-label before">Before</span><img src="images/IMG_20260610_125532.jpg" alt="Before – garage organization"></div>
+          <div class="gallery-img-wrap"><span class="gallery-label after">After</span><img src="images/IMG_20260610_125536.jpg" alt="After – garage organization"></div>
+        </div>
+        <p class="caption">Garage organization</p>
       </div>
     </div>
-    <p style="text-align:center; margin-top:1.5rem; color:#888; font-style:italic;">Photos coming soon – ask about seeing our work in person!</p>
   </section>
 
   <!-- Reviews -->
